@@ -67,21 +67,21 @@ cursor: pointer;
 
 export const RemoveCardButton = styled('button')`
 position: absolute;
-bottom: 0;
-left: 0;
+top: 0;
+right: 0;
 display: grid;
 place-items: center;
 height: 4rem;
 width: 4rem;
 border: none;
-margin: .5rem;
+/* margin: .5rem; */
 border-radius: 50%;
 background-color: whitesmoke;
 cursor: pointer;
 
 &::before {
 position: absolute;
-top: 0;
+left: -1rem;
 content: 'next';
 font-size: 1rem;
 }
