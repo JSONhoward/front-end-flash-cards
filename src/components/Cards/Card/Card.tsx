@@ -1,41 +1,30 @@
 import React from 'react'
-import { FaEyeSlash, FaEye, FaArrowRight } from 'react-icons/fa'
 
-import { AnswerText, FlashCard, RemoveCardButton, ShowAnswerButton, Loading } from './styles';
+import { AnswerText, FlashCard, Loading } from './styles';
 
 type Props = {
     question: string,
     answer: string,
     remove: boolean,
-    handleRemove: () => void,
-    handleShow: () => void
     rotation: number,
     show: boolean,
-    loading: boolean
+    loading: boolean,
+    code?: string
 }
 
-const Card: React.FC<Props> = ({ question, answer, rotation, handleRemove, handleShow, remove, show, loading }) => {
+const Card: React.FC<Props> = ({ question, answer, rotation, remove, show, loading, code }) => {
     return (
-        <>
-            <FlashCard done={remove} rotation={rotation}>
-                {
-                    loading ? <Loading rotation={rotation}>Loading...</Loading> : (
-                        <>
-                            <p>{question}</p>
-                            <AnswerText show={show}>{answer}</AnswerText>
-                            <RemoveCardButton onClick={handleRemove}>
-                                <FaArrowRight size={'2rem'} />
-                            </RemoveCardButton>
-                            <ShowAnswerButton show={show} onClick={handleShow}>
-                                {
-                                    show ? <FaEye size={'2rem'} /> : <FaEyeSlash size={'2rem'} />
-                                }
-                            </ShowAnswerButton>
-                        </>
-                    )
-                }
-            </FlashCard>
-        </>
+        <FlashCard done={remove} rotation={rotation}>
+            {
+                loading ? <Loading rotation={rotation}>Loading...</Loading> : (
+                    <>
+                        <p>{question}</p>
+                        <code>{code?.replace(/\\n/g, '\n')}</code>
+                        <AnswerText show={show}>{answer.replace(/\\n/g, '\n')}</AnswerText>
+                    </>
+                )
+            }
+        </FlashCard>
     )
 }
 

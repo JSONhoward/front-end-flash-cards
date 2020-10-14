@@ -1,8 +1,8 @@
 import styled, {keyframes, css} from 'styled-components';
 
-const cardToBack = keyframes`
+const animation = (props: any) => keyframes`
 from {
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) rotate(${props.rotation}deg);
 }
 to {
     transform: translate(-400%, -50%) rotate(-90deg);
@@ -18,8 +18,10 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: space-evenly;
-height: 25vw;
+height: 30vw;
 width: 50vw;
+min-height: 168px;
+min-width: 280px;
 padding: 4rem;
 background-color: whitesmoke;
 box-shadow: 2px 2px 10px rgba(0,0,0,.5);
@@ -33,57 +35,12 @@ p {
 
 export const AnswerText = styled('p')<{show: boolean}>`
 filter: ${({show}) => !show ? `blur(5px)` : 'none'};
-`
+font-size: 2.5vw;
+font-style: italic;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
-export const ShowAnswerButton = styled('button')<{show: boolean}>`
-position: absolute;
-bottom: 0;
-right: 0;
-display: grid;
-place-items: center;
-border: none;
-margin: .5rem;
-padding: .75rem;
-border-radius: 50%;
-background-color: whitesmoke;
-cursor: pointer;
-
-&::before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    content: '${({show}) => show ? 'hide' : 'show'}';
-}
-
-&::after {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    content: 'answer'
-}
-`
-
-export const RemoveCardButton = styled('button')`
-position: absolute;
-top: 0;
-right: 0;
-display: grid;
-place-items: center;
-height: 4rem;
-width: 4rem;
-border: none;
-/* margin: .5rem; */
-border-radius: 50%;
-background-color: whitesmoke;
-cursor: pointer;
-
-&::before {
-position: absolute;
-left: -1rem;
-content: 'next';
-font-size: 1rem;
+@media screen and (min-width: 600px) {
+ font-size: 1.25rem;
 }
 `
 
@@ -95,18 +52,43 @@ transform: ${({rotation}) => `translate(-50%, -50%) rotate(${rotation}deg)`};
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-evenly;
-height: 25vw;
+justify-content: space-around;
+height: 30vw;
 width: 50vw;
-padding: 4rem;
+min-height: 168px;
+min-width: 280px;
+padding: .5rem;
 background-color: whitesmoke;
 box-shadow: 2px 2px 10px rgba(0,0,0,.5);
-animation: ${({done}) => done ? css`${cardToBack} 1s linear` : 'none'};
+animation: ${({done}) => done ? css`${animation} 1s linear` : 'none'};
 font-family: 'Permanent Marker', cursive;
 font-size: 1.5rem;
 
 p {
     text-align: center;
+    font-size: 3vw;
+    white-space: pre-wrap;
+}
+
+code {
+    background-color: black;
+    max-height: 50%;
+    width: fit-content;
+    min-width: 75%;
+    color: white;
+    font-family: monospace;
+    font-size: .5rem;
+    white-space: pre-wrap;
+    overflow: auto;
+}
+
+@media screen and (min-width: 600px) {
+    p {
+        font-size: 1.5rem;
+    }
+    code {
+        font-size: 1.25rem;
+    }
 }
 `
 
