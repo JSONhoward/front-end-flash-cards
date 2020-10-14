@@ -1,19 +1,18 @@
 import React, { useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 import { CardOffset } from '../../store/atoms';
-import { FiveQuestions, CurrentCategory } from '../../store/selectors';
+import { FiveQuestions } from '../../store/selectors';
 
 import Card from './Card/Card';
 import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards } from './styles';
 
 const Cards = () => {
     const [cardOffset, setCardOffset] = useRecoilState(CardOffset)
-    const [category, setCategory] = useState('Coding')
+    const [category, setCategory] = useState('all')
     const cardsArray = useRecoilValue(FiveQuestions({cardOffset, category}))
     const [removeCard, setRemoveCard] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
     const [loading, setLoading] = useState(false)
-    const currentCategory= useRecoilValue(CurrentCategory(cardOffset))
 
     const handleRemoveCard = () => {
         setRemoveCard(true)
@@ -40,7 +39,7 @@ const Cards = () => {
                 answer={el.a}
                 remove={i === 0 ? removeCard : false}
                 show={showAnswer}
-                rotation={i}
+                offset={i}
             />
         )
     }).reverse()
@@ -49,10 +48,10 @@ const Cards = () => {
         <StyledCards>
             <CardsContainer>
                 {cardStack}
-                <CardCategory>Category: {currentCategory}</CardCategory>
+                <CardCategory>Category: {cardsArray[0]?.Category || ''}</CardCategory>
                 <ShowAnswer answer={showAnswer} onClick={handleShowAnswer}><p>Show Answer</p></ShowAnswer>
                 <NextCard onClick={handleRemoveCard}>
-                Next
+                Next Card
                 </NextCard>
             </CardsContainer>
         </StyledCards>

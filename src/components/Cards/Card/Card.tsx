@@ -6,17 +6,17 @@ type Props = {
     question: string,
     answer: string,
     remove: boolean,
-    rotation: number,
+    offset: number,
     show: boolean,
     loading: boolean,
     code?: string
 }
 
-const Card: React.FC<Props> = ({ question, answer, rotation, remove, show, loading, code }) => {
+const Card: React.FC<Props> = ({ question, answer, offset, remove, show, loading, code }) => {
     return (
-        <FlashCard done={remove} rotation={rotation}>
+        <FlashCard done={remove} offset={offset}>
             {
-                loading ? <Loading rotation={rotation}>Loading...</Loading> : (
+                loading ? <Loading>Loading...</Loading> : (
                     <>
                         <p>{question}</p>
                         <code>{code?.replace(/\\n/g, '\n')}</code>

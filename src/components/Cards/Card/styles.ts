@@ -1,19 +1,19 @@
 import styled, {keyframes, css} from 'styled-components';
 
-const animation = (props: any) => keyframes`
+const animation = keyframes`
 from {
-    transform: translate(-50%, -50%) rotate(${props.rotation}deg);
+    transform: translate(-50%, -50%);
 }
 to {
     transform: translate(-400%, -50%) rotate(-90deg);
 }
 `
 
-export const Loading = styled('div')<{rotation: number}>`
+export const Loading = styled('div')`
 position: absolute;
 top: 50%;
 left: 50%;
-transform: ${({rotation}) => `translate(-50%, -50%) rotate(${rotation}deg)`};
+transform: translate(-50%, -50%);
 display: flex;
 flex-direction: column;
 align-items: center;
@@ -44,11 +44,11 @@ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida San
 }
 `
 
-export const FlashCard = styled('div')<{rotation: number, done: boolean}>`
+export const FlashCard = styled('div')<{offset: number, done: boolean}>`
 position: absolute;
 top: 50%;
 left: 50%;
-transform: ${({rotation}) => `translate(-50%, -50%) rotate(${rotation}deg)`};
+transform: ${({offset}) => `translate(${-50 + offset}%, ${-50 + offset}%)`};
 display: flex;
 flex-direction: column;
 align-items: center;

@@ -15,7 +15,7 @@ const App = () => {
       .collection('cards')
       .get()
       .then(data => {
-        let docArray: { id: string, Category: string, code: string, q: string, a: string }[] = []
+        let docArray: FirebaseDocArray = []
         data.forEach(doc => {
           docArray.push({
             id: doc.id,

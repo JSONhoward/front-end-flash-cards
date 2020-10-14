@@ -8,12 +8,14 @@ export const mockQuestionArray = [
     {
         id: '2',
         category: 'General',
+        code: 'some code',
         q: 'Test question 2',
         a: 'some answer'
     },
     {
         id: '3',
         category: 'General',
+        code: 'some code',
         q: 'Test question 3',
         a: 'some answer'
     },
