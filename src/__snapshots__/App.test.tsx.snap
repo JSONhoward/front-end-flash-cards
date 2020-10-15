@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Tests Matches Snapshot 1`] = `
+<div
+  className="sc-fujyUd eXKdVz"
+>
+  <div
+    className="sc-hKFyIo iFNKGC"
+  >
+    <div
+      className="sc-eCApGN jXWRmb"
+    >
+      <div
+        className="sc-dlnjPT cqeDqx"
+        offset={0}
+      >
+        <p>
+          question
+        </p>
+        <code>
+          code
+        </code>
+        <p
+          className="sc-gtssRu hoZAfs"
+        >
+          answer
+        </p>
+      </div>
+      <div
+        className="sc-jSFkmK dTdsZt"
+      >
+        Category: 
+        none
+      </div>
+      <div
+        className="sc-iCoHVE eclAQG"
+        data-testid="showAnswer"
+        onClick={[Function]}
+      >
+        <p>
+          Show Answer
+        </p>
+      </div>
+      <div
+        className="sc-gKAblj cA-DtCJ"
+        data-testid="nextCard"
+        onClick={[Function]}
+      >
+        Next Card
+      </div>
+    </div>
+  </div>
+</div>
+`;

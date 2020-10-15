@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
+
 import { CardOffset } from '../../store/atoms';
 import { FiveQuestions } from '../../store/selectors';
-
 import Card from './Card/Card';
 import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards } from './styles';
 
@@ -25,13 +25,10 @@ const Cards = () => {
         }, 1000)
     }
 
-    const handleShowAnswer = () => {
-        setShowAnswer(true)
-    }
-
     let cardStack = cardsArray?.map((el, i) => {
         return (
             <Card
+                data-testid={`cardTest${i}`}
                 key={el.id}
                 loading={loading}
                 question={el.q}
@@ -49,8 +46,8 @@ const Cards = () => {
             <CardsContainer>
                 {cardStack}
                 <CardCategory>Category: {cardsArray[0]?.Category || ''}</CardCategory>
-                <ShowAnswer answer={showAnswer} onClick={handleShowAnswer}><p>Show Answer</p></ShowAnswer>
-                <NextCard onClick={handleRemoveCard}>
+                <ShowAnswer data-testid='showAnswer' answer={showAnswer} onClick={() => setShowAnswer(true)}><p>Show Answer</p></ShowAnswer>
+                <NextCard data-testid='nextCard' onClick={handleRemoveCard}>
                 Next Card
                 </NextCard>
             </CardsContainer>

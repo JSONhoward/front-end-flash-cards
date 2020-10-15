@@ -17,7 +17,7 @@ transform: translate(-50%, -50%);
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: space-evenly;
+justify-content: space-around;
 height: 30vw;
 width: 50vw;
 min-height: 168px;
