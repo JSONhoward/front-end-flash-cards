@@ -31,6 +31,27 @@ font-size: 3vw;
 color: whitesmoke;
 text-shadow: 2px 2px 10px rgba(0,0,0,.5);
 
+
+select {
+    display: block;
+    height: 75%;
+    text-align: center;
+    appearance: none;
+    margin: 0 5px;
+    font-size: 1rem;
+    padding: .6em 1.4em .5em .8em;
+    box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+}
+
+select:hover {
+    border: 2px solid #888;
+    cursor:pointer;
+}
+
+select option {
+    text-align: center;
+}
+
 @media screen and (min-width: 600px) {
     font-size: 1.5rem
 }

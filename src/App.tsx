@@ -6,17 +6,18 @@ import { mockQuestionArray } from './utils/mockData';
 import { FirebaseContext } from './Firebase/index';
 
 type Props = {
-  fetchCards: (firebase: any) => Promise<FirebaseDocArray>
+  fetchCards: (firebase: firebase.app.App) => Promise<FirebaseDocArray>
 }
 
 const App: React.FC<Props> = ({fetchCards}) => {
-  const firebase = React.useContext(FirebaseContext)
+  const firebase = React.useContext<firebase.app.App | null>(FirebaseContext)
   const fetchAllQuestions = useSetRecoilState(AllQuestions)
 
   React.useEffect(() => {
-    fetchCards(firebase)
+    fetchCards(firebase as firebase.app.App)
       .then(cards => fetchAllQuestions(cards))
     // fetchAllQuestions(mockQuestionArray)
+    // eslint-disable-next-line
   }, [])
 
   return (

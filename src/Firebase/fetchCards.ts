@@ -1,6 +1,6 @@
 
-export const fetchCards = async (firebase: any) => {
-    let cards = firebase
+export const fetchCards = async (firebase: firebase.app.App) => {
+    const cards = firebase
       ?.firestore()
       .collection('cards')
       .get()
@@ -10,7 +10,7 @@ export const fetchCards = async (firebase: any) => {
           docArray.push({
             id: doc.id,
             Category: doc.data().Category,
-            code: doc.data().code || '',
+            code: doc.data().code ?? '',
             q: doc.data().q,
             a: doc.data().a
           })

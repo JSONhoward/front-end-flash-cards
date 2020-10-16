@@ -1,6 +1,5 @@
 import React from 'react'
-import {create} from 'react-test-renderer'
-import {render, screen, cleanup, fireEvent} from '@testing-library/react'
+import {unmountComponentAtNode, render} from 'react-dom'
 
 import App from './App'
 import { RecoilWrapper } from './utils/Test.utils'
@@ -27,26 +26,28 @@ const fetchCards = jest.fn((firebase: any): Promise<FirebaseDocArray> => {
     })
 })
 
-afterEach(cleanup)
+let container: HTMLDivElement | null = null
+beforeEach(() => {
+    container = document.createElement('div')
+    document.body.appendChild(container)
+})
+
+afterEach(() => {
+    unmountComponentAtNode(container as HTMLDivElement)
+    container?.remove()
+    container = null
+})
 
 describe('App Tests', () => {
     it('Matches Snapshot', () => {
-        const component = create(<RecoilWrapper><App fetchCards={fetchCards} /></RecoilWrapper>)
+        render(<RecoilWrapper><App fetchCards={fetchCards} /></RecoilWrapper>, container)
 
-        expect(component.toJSON()).toMatchSnapshot()
+        expect(container?.innerHTML).toMatchSnapshot()
     })
 
     it('Calls firebase api', () => {
-        render(<RecoilWrapper><App fetchCards={fetchCards} /></RecoilWrapper>)
+        render(<RecoilWrapper><App fetchCards={fetchCards} /></RecoilWrapper>, container)
 
         expect(fetchCards).toHaveBeenCalledTimes(1)
-    })
-
-    it('Updates atom to fetched firebase documents', async () => {
-        render(<RecoilWrapper><App fetchCards={fetchCards} /></RecoilWrapper>)
-
-        expect(await screen.findByText('question 1'))
-        fireEvent.click(screen.getByText('Next Card'))
-        expect(await screen.findByText('question 2'))
     })
 })

@@ -14,38 +14,38 @@ export const mockQuestionArray: FirebaseDocArray = [
     },
     {
         id: '3',
-        Category: 'General',
+        Category: 'HTML',
         code: 'some code',
         q: 'Test question 3',
         a: 'some answer'
     },
     {
         id: "4",
-        Category: 'General',
+        Category: 'Javascript',
         q: 'Test question 4',
         a: 'some answer'
     },
     {
         id: '5',
-        Category: 'General',
+        Category: 'CSS',
         q: 'Test question 5',
         a: 'some answer'
     },
     {
         id: '6',
-        Category: 'General',
+        Category: 'Networking',
         q: 'Test question 6',
         a: 'some answer'
     },
     {
         id: '7',
-        Category: 'General',
+        Category: 'Testing',
         q: 'Test question 7',
         a: 'some answer'
     },
     {
         id: '8',
-        Category: 'General',
+        Category: 'Coding',
         q: 'Test question 8',
         a: 'some answer'
     },

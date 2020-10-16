@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { CardOffset } from '../../store/atoms';
@@ -9,10 +9,14 @@ import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards } from 
 const Cards = () => {
     const [cardOffset, setCardOffset] = useRecoilState(CardOffset)
     const [category, setCategory] = useState('all')
-    const cardsArray = useRecoilValue(FiveQuestions({cardOffset, category}))
+    const cardsArray = useRecoilValue(FiveQuestions({ cardOffset, category }))
     const [removeCard, setRemoveCard] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        if (cardsArray[0]?.id !== '0') setLoading(false)
+    }, [cardsArray])
 
     const handleRemoveCard = () => {
         setRemoveCard(true)
@@ -23,6 +27,10 @@ const Cards = () => {
             setRemoveCard(false)
             setLoading(false)
         }, 1000)
+    }
+
+    const handleDropdown = (e: React.SyntheticEvent) => {
+        setCategory((e.target as HTMLSelectElement).value)
     }
 
     let cardStack = cardsArray?.map((el, i) => {
@@ -45,10 +53,21 @@ const Cards = () => {
         <StyledCards>
             <CardsContainer>
                 {cardStack}
-                <CardCategory>Category: {cardsArray[0]?.Category || ''}</CardCategory>
+                <CardCategory>
+                    <label htmlFor='category'>Category:</label>
+                    <select name='category' onChange={handleDropdown}>
+                        <option value='all'>All</option>
+                        <option value='General'>General</option>
+                        <option value='HTML'>HTML</option>
+                        <option value='CSS'>CSS</option>
+                        <option value='Javascript'>Javascript</option>
+                        <option value='Networking'>Networking</option>
+                        <option value='Testing'>Testing</option>
+                    </select>
+                </CardCategory>
                 <ShowAnswer data-testid='showAnswer' answer={showAnswer} onClick={() => setShowAnswer(true)}><p>Show Answer</p></ShowAnswer>
                 <NextCard data-testid='nextCard' onClick={handleRemoveCard}>
-                Next Card
+                    Next Card
                 </NextCard>
             </CardsContainer>
         </StyledCards>

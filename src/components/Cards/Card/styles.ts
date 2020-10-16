@@ -38,6 +38,9 @@ filter: ${({show}) => !show ? `blur(5px)` : 'none'};
 font-size: 2.5vw;
 font-style: italic;
 font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+max-height: 50%;
+overflow-y: auto;
+overflow-x: hidden;
 
 @media screen and (min-width: 600px) {
  font-size: 1.25rem;
