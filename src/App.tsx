@@ -2,6 +2,7 @@ import React from 'react';
 import { useSetRecoilState } from 'recoil';
 import Home from './pages/Home';
 import { AllQuestions } from './store/atoms';
+// eslint-disable-next-line
 import { mockQuestionArray } from './utils/mockData';
 import { FirebaseContext } from './Firebase/index';
 

@@ -1,13 +1,21 @@
 import styled from 'styled-components';
 
 export const StyledCards = styled('div')`
+position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-height: 100vh;
-width: 100vw;
-overflow: hidden;
+height: 100%;
+
+h1 {
+    color: whitesmoke;
+}
+`
+
+export const QuestionCount = styled('p')`
+color: whitesmoke;
+margin: 1rem;
 `
 
 export const CardsContainer = styled('div')`
@@ -21,26 +29,27 @@ min-width: 280px;
 export const CardCategory = styled('div')`
 position: absolute;
 left: 0;
-bottom: 0;
+bottom: -1rem;
 display: flex;
+flex-direction: column;
 align-items: center;
-justify-content: center;
-height: 3rem;
+justify-content: flex-end;
+height: 2rem;
 /* width: 10rem; */
-font-size: 3vw;
+font-size: 1.5vw;
 color: whitesmoke;
 text-shadow: 2px 2px 10px rgba(0,0,0,.5);
 
-
 select {
     display: block;
-    height: 75%;
+    height: 2rem;
+    width: 6rem;
     text-align: center;
-    appearance: none;
     margin: 0 5px;
-    font-size: 1rem;
-    padding: .6em 1.4em .5em .8em;
+    font-size: 1.5rem;
+    padding-left: 5px;
     box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+    background-color: whitesmoke;
 }
 
 select:hover {
@@ -48,23 +57,24 @@ select:hover {
     cursor:pointer;
 }
 
-select option {
-    text-align: center;
-}
+@media screen and (max-width: 600px) {
+    font-size: .75rem;
 
-@media screen and (min-width: 600px) {
-    font-size: 1.5rem
+    select {
+        height: 1.5rem;
+        font-size: 1rem;
+        padding: 2px;
+    }
 }
 `
 
 export const NextCard = styled('div')`
 position: absolute;
-bottom: 0;
+bottom: -.5rem;
 right: 0;
 display: flex;
 align-items: center;
-justify-content: center;
-height: 3rem;
+justify-content: flex-end;
 font-size: 3vw;
 color: whitesmoke;
 text-shadow: 2px 2px 10px rgba(0,0,0,.5);
@@ -77,12 +87,11 @@ cursor: pointer;
 
 export const ShowAnswer = styled('div')<{answer: boolean}>`
 position: absolute;
-bottom: 0;
+bottom: -.5rem;
 left: 50%;
 transform: translateX(-50%);
 display: flex;
 align-items: center;
-height: 3rem;
 color: ${({answer}) => answer ? 'grey' : 'whitesmoke'};
 font-size: 3vw;
 cursor: ${({answer}) => answer ? 'not-allowed' : 'pointer'};

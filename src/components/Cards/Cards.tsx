@@ -2,13 +2,14 @@ import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
 import { CardOffset } from '../../store/atoms';
-import { FiveQuestions } from '../../store/selectors';
+import { FiveQuestions, TotalQuestions } from '../../store/selectors';
 import Card from './Card/Card';
-import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards } from './styles';
+import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards, QuestionCount } from './styles';
 
 const Cards = () => {
     const [cardOffset, setCardOffset] = useRecoilState(CardOffset)
     const [category, setCategory] = useState('all')
+    const totalQuestions = useRecoilValue(TotalQuestions)
     const cardsArray = useRecoilValue(FiveQuestions({ cardOffset, category }))
     const [removeCard, setRemoveCard] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)
@@ -51,6 +52,8 @@ const Cards = () => {
 
     return (
         <StyledCards>
+        <h1>Front End Developer Interview Questions</h1>
+        <QuestionCount>Question# {cardOffset + 1} of {totalQuestions}</QuestionCount>
             <CardsContainer>
                 {cardStack}
                 <CardCategory>
