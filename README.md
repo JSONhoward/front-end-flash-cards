@@ -33,6 +33,13 @@ or
 npm install
 ```
 
+## Built With
+
+* [React](https://reactjs.org/)
+* [Typescript](https://www.typescriptlang.org/)
+* [Styled-Components](https://styled-components.com/) (_styles_)
+* [Recoil](https://recoiljs.org/) (_state management_)
+
 ## License
 
 [MIT](https://choosealicense.com/license/mit/)

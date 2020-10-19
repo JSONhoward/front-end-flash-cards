@@ -2,11 +2,40 @@
 
 exports[`Cards Tests Matches Snapshot 1`] = `
 .c3 {
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  font-size: 2.5vw;
-  font-style: italic;
-  font-family: 'Trebuchet MS','Lucida Sans Unicode','Lucida Grande','Lucida Sans',Arial,sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: space-around;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: space-around;
+  justify-content: space-around;
+  height: 30vw;
+  width: 50vw;
+  min-height: 168px;
+  min-width: 280px;
+  padding: 4rem;
+  background-color: whitesmoke;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+  font-family: 'Permanent Marker',cursive;
+  font-size: 1.5rem;
+}
+
+.c3 p {
+  text-align: center;
 }
 
 .c2 {
@@ -65,6 +94,7 @@ exports[`Cards Tests Matches Snapshot 1`] = `
 }
 
 .c0 {
+  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -76,13 +106,29 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
+}
+
+.c5 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 5rem;
+  width: 50vw;
+  min-width: 280px;
+}
+
+.c4 {
+  color: whitesmoke;
 }
 
 .c1 {
@@ -93,32 +139,46 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   min-width: 280px;
 }
 
-.c4 {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 3rem;
-  font-size: 3vw;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  height: 2rem;
+  font-size: 1.5vw;
   color: whitesmoke;
   text-shadow: 2px 2px 10px rgba(0,0,0,.5);
 }
 
-.c6 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
+.c6 select {
+  display: block;
+  height: 2rem;
+  width: 6rem;
+  text-align: center;
+  margin: 0 5px;
+  font-size: 1.5rem;
+  padding-left: 5px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,.5);
+  background-color: whitesmoke;
+}
+
+.c6 select:hover {
+  border: 2px solid #888;
+  cursor: pointer;
+}
+
+.c8 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -127,24 +187,17 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  height: 3rem;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
   font-size: 3vw;
   color: whitesmoke;
   text-shadow: 2px 2px 10px rgba(0,0,0,.5);
   cursor: pointer;
 }
 
-.c5 {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  transform: translateX(-50%);
+.c7 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -153,7 +206,6 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 3rem;
   color: whitesmoke;
   font-size: 3vw;
   cursor: pointer;
@@ -165,14 +217,8 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   transition: color .25s ease-in-out;
 }
 
-.c5:hover {
+.c7:hover {
   color: green;
-}
-
-@media screen and (min-width:600px) {
-  .c3 {
-    font-size: 1.25rem;
-  }
 }
 
 @media screen and (min-width:600px) {
@@ -185,20 +231,26 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   }
 }
 
-@media screen and (min-width:600px) {
-  .c4 {
-    font-size: 1.5rem;
-  }
-}
-
-@media screen and (min-width:600px) {
+@media screen and (max-width:600px) {
   .c6 {
+    font-size: .75rem;
+  }
+
+  .c6 select {
+    height: 1.5rem;
+    font-size: 1rem;
+    padding: 2px;
+  }
+}
+
+@media screen and (min-width:600px) {
+  .c8 {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (min-width:600px) {
-  .c5 {
+  .c7 {
     font-size: 1.5rem;
   }
 }
@@ -213,26 +265,75 @@ exports[`Cards Tests Matches Snapshot 1`] = `
       className="c2"
       offset={0}
     >
-      <p>
-        question
-      </p>
-      <code>
-        code
-      </code>
-      <p
+      <div
         className="c3"
       >
-        answer
-      </p>
+        Loading...
+      </div>
     </div>
+  </div>
+  <p
+    className="c4"
+  >
+    Question# 
+    1
+     of 
+    1
+  </p>
+  <div
+    className="c5"
+  >
     <div
-      className="c4"
+      className="c6"
     >
-      Category: 
-      none
+      <label
+        htmlFor="category"
+      >
+        Category:
+      </label>
+      <select
+        name="category"
+        onChange={[Function]}
+      >
+        <option
+          value="all"
+        >
+          All
+        </option>
+        <option
+          value="General"
+        >
+          General
+        </option>
+        <option
+          value="HTML"
+        >
+          HTML
+        </option>
+        <option
+          value="CSS"
+        >
+          CSS
+        </option>
+        <option
+          value="Javascript"
+        >
+          Javascript
+        </option>
+        <option
+          value="Networking"
+        >
+          Networking
+        </option>
+        <option
+          value="Testing"
+        >
+          Testing
+        </option>
+      </select>
     </div>
     <div
-      className="c5"
+      className="c7"
       data-testid="showAnswer"
       onClick={[Function]}
     >
@@ -241,7 +342,7 @@ exports[`Cards Tests Matches Snapshot 1`] = `
       </p>
     </div>
     <div
-      className="c6"
+      className="c8"
       data-testid="nextCard"
       onClick={[Function]}
     >
