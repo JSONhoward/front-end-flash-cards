@@ -5,17 +5,20 @@ position: relative;
 display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
-height: 100%;
+`
 
-h1 {
-    color: whitesmoke;
-}
+export const CardOptions = styled('div')`
+position: relative;
+display: flex;
+align-items: center;
+justify-content: space-between;
+height: 5rem;
+width: 50vw;
+min-width: 280px;
 `
 
 export const QuestionCount = styled('p')`
 color: whitesmoke;
-margin: 1rem;
 `
 
 export const CardsContainer = styled('div')`
@@ -27,15 +30,11 @@ min-width: 280px;
 `
 
 export const CardCategory = styled('div')`
-position: absolute;
-left: 0;
-bottom: -1rem;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: flex-end;
 height: 2rem;
-/* width: 10rem; */
 font-size: 1.5vw;
 color: whitesmoke;
 text-shadow: 2px 2px 10px rgba(0,0,0,.5);
@@ -69,9 +68,6 @@ select:hover {
 `
 
 export const NextCard = styled('div')`
-position: absolute;
-bottom: -.5rem;
-right: 0;
 display: flex;
 align-items: center;
 justify-content: flex-end;
@@ -86,10 +82,6 @@ cursor: pointer;
 `
 
 export const ShowAnswer = styled('div')<{answer: boolean}>`
-position: absolute;
-bottom: -.5rem;
-left: 50%;
-transform: translateX(-50%);
 display: flex;
 align-items: center;
 color: ${({answer}) => answer ? 'grey' : 'whitesmoke'};
