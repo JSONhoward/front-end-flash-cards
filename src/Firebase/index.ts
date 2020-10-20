@@ -1,6 +1,6 @@
 
-import { createContext } from 'react';
-import firebase from 'firebase/app';
+import { createContext } from 'react'
+import firebase from 'firebase/app'
 import 'firebase/firestore'
 
 export const FirebaseContext = createContext<typeof Firebase | null>(null)

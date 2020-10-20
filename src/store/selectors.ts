@@ -1,5 +1,5 @@
 import { selector, selectorFamily } from 'recoil'
-import { AllQuestions } from './atoms';
+import { AllQuestions } from './atoms'
 
 export const FiveQuestions = selectorFamily({
     key: 'fiveQuestions',

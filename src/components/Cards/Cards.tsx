@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useRecoilState, useRecoilValue } from 'recoil'
 
-import { CardOffset } from '../../store/atoms';
-import { FiveQuestions, TotalQuestions } from '../../store/selectors';
-import Card from './Card/Card';
-import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards, QuestionCount, CardOptions } from './styles';
+import { CardOffset } from '../../store/atoms'
+import { FiveQuestions, TotalQuestions } from '../../store/selectors'
+import Card from './Card/Card'
+import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards, QuestionCount, CardOptions } from './styles'
 
 const Cards = () => {
     const [cardOffset, setCardOffset] = useRecoilState(CardOffset)
@@ -37,7 +37,6 @@ const Cards = () => {
     let cardStack = cardsArray?.map((el, i) => {
         return (
             <Card
-                data-testid={`cardTest${i}`}
                 key={el.id}
                 loading={loading}
                 question={el.q}
@@ -51,31 +50,31 @@ const Cards = () => {
     }).reverse()
 
     return (
-            <StyledCards>
-                
-                <CardsContainer>
-                    {cardStack}
-                </CardsContainer>
-                <QuestionCount>Question# {cardOffset + 1} of {totalQuestions}</QuestionCount>
-                <CardOptions>
-                    <CardCategory>
-                        <label htmlFor='category'>Category:</label>
-                        <select name='category' onChange={handleDropdown}>
-                            <option value='all'>All</option>
-                            <option value='General'>General</option>
-                            <option value='HTML'>HTML</option>
-                            <option value='CSS'>CSS</option>
-                            <option value='Javascript'>Javascript</option>
-                            <option value='Networking'>Networking</option>
-                            <option value='Testing'>Testing</option>
-                        </select>
-                    </CardCategory>
-                    <ShowAnswer data-testid='showAnswer' answer={showAnswer} onClick={() => setShowAnswer(true)}><p>Show Answer</p></ShowAnswer>
-                    <NextCard data-testid='nextCard' onClick={handleRemoveCard}>
-                        Next Card
-                    </NextCard>
-                </CardOptions>
-            </StyledCards>
+        <StyledCards>
+            <CardsContainer>
+                {cardStack}
+            </CardsContainer>
+            <QuestionCount data-testid='questionCount'>Question# {cardOffset + 1} of {totalQuestions}</QuestionCount>
+            <CardOptions>
+                <CardCategory>
+                    <label htmlFor='category'>Category:</label>
+                    {/*eslint-disable-next-line jsx-a11y/no-onchange */}
+                    <select name='category' onChange={handleDropdown}>
+                        <option value='all'>All</option>
+                        <option value='General'>General</option>
+                        <option value='HTML'>HTML</option>
+                        <option value='CSS'>CSS</option>
+                        <option value='Javascript'>Javascript</option>
+                        <option value='Networking'>Networking</option>
+                        <option value='Testing'>Testing</option>
+                    </select>
+                </CardCategory>
+                <ShowAnswer data-testid='showAnswer' answer={showAnswer} onClick={() => setShowAnswer(true)}><p>Show Answer</p></ShowAnswer>
+                <NextCard data-testid='nextCard' onClick={handleRemoveCard}>
+                    Next Card
+                </NextCard>
+            </CardOptions>
+        </StyledCards>
     )
 }
 

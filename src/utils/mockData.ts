@@ -20,7 +20,7 @@ export const mockQuestionArray: FirebaseDocArray = [
         a: 'some answer'
     },
     {
-        id: "4",
+        id: '4',
         Category: 'Javascript',
         q: 'Test question 4',
         a: 'some answer'

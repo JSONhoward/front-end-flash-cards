@@ -4,7 +4,9 @@ import {unmountComponentAtNode, render} from 'react-dom'
 import App from './App'
 import { RecoilWrapper } from './utils/Test.utils'
 
-const fetchCards = jest.fn((firebase: any): Promise<FirebaseDocArray> => {
+// eslint-disable-next-line no-unused-vars
+const fetchCards = jest.fn((_firebase: any): Promise<FirebaseDocArray> => {
+    // eslint-disable-next-line no-unused-vars
     return new Promise((res, _) => {
         res(
             [

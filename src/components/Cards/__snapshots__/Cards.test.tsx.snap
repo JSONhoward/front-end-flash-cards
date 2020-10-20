@@ -274,6 +274,7 @@ exports[`Cards Tests Matches Snapshot 1`] = `
   </div>
   <p
     className="c4"
+    data-testid="questionCount"
   >
     Question# 
     1

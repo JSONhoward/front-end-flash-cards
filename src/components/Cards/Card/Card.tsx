@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { AnswerText, FlashCard, Loading } from './styles';
+import { AnswerText, FlashCard, Loading } from './styles'
 
 type Props = {
     question: string,
