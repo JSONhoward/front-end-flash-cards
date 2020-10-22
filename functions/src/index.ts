@@ -22,23 +22,23 @@ const typeDefs = gql`
 const resolvers = {
     Query: {
         cards: () =>
-        admin
-        .firestore()
-        .collection('cards')
-        .get()
-        .then((data: any) => {
-            let docArray: FirebaseDocArray = []
-            data.forEach((doc: any) => {
-                docArray.push({
-                    id: doc.id,
-                    Category: doc.data().Category,
-                    code: doc.data().code || '',
-                    q: doc.data().q,
-                    a: doc.data().a
+            admin
+                .firestore()
+                .collection('cards')
+                .get()
+                .then((data: any) => {
+                    let docArray: FirebaseDocArray = []
+                    data.forEach((doc: any) => {
+                        docArray.push({
+                            id: doc.id,
+                            Category: doc.data().Category,
+                            code: doc.data().code || '',
+                            q: doc.data().q,
+                            a: doc.data().a
+                        })
+                    })
+                    return docArray
                 })
-            })
-            return docArray
-        })
     }
 }
 

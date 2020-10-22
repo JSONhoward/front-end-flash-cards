@@ -1,0 +1,13 @@
+POST https://us-central1-front-end-dev-flash-cards.cloudfunctions.net/graphql
+Content-Type: application/json
+X-REQUEST-TYPE: GraphQL
+
+query {
+    cards {
+        id
+        Category
+        q
+        code
+        a
+    }
+}

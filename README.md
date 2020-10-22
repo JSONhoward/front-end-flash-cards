@@ -39,6 +39,7 @@ npm install
 * [Typescript](https://www.typescriptlang.org/)
 * [Styled-Components](https://styled-components.com/) (_styles_)
 * [Recoil](https://recoiljs.org/) (_state management_)
+* [Firebase](https://console.firebase.google.com/)
 
 ## License
 

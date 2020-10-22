@@ -4,15 +4,12 @@ import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
 import { RecoilRoot } from 'recoil'
-import Firebase, {FirebaseContext} from './Firebase'
-import { fetchCards } from './Firebase/fetchCards'
+import { fetchCards } from './utils/fetchCards'
 
 ReactDOM.render(
     <React.StrictMode>
         <RecoilRoot>
-            <FirebaseContext.Provider value={Firebase}>
-                <App fetchCards={fetchCards} />
-            </FirebaseContext.Provider>
+            <App fetchCards={fetchCards}/>
         </RecoilRoot>
     </React.StrictMode>,
     document.getElementById('root')
