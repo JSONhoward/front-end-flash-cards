@@ -9,7 +9,7 @@ import { CardCategory, CardsContainer, NextCard, ShowAnswer, StyledCards, Questi
 const Cards = () => {
     const [cardOffset, setCardOffset] = useRecoilState(CardOffset)
     const [category, setCategory] = useState('all')
-    const totalQuestions = useRecoilValue(TotalQuestions)
+    const totalQuestions = useRecoilValue(TotalQuestions(category))
     const cardsArray = useRecoilValue(FiveQuestions({ cardOffset, category }))
     const [removeCard, setRemoveCard] = useState(false)
     const [showAnswer, setShowAnswer] = useState(false)

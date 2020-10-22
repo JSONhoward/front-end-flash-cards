@@ -1,4 +1,4 @@
-import { selector, selectorFamily } from 'recoil'
+import { selectorFamily } from 'recoil'
 import { AllQuestions } from './atoms'
 
 export const FiveQuestions = selectorFamily({
@@ -14,7 +14,14 @@ export const FiveQuestions = selectorFamily({
     }
 })
 
-export const TotalQuestions = selector({
+export const TotalQuestions = selectorFamily({
     key: 'totalQuestions',
-    get: ({get}) => get(AllQuestions).length
+    get: (category: string) => ({get}) => {
+        if (category === 'all') {
+            const questions = get(AllQuestions).length
+            return questions
+        }
+        const questions  = get(AllQuestions).filter(q => q.Category === category).length
+        return questions
+    }
 })
