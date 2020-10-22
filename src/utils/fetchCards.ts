@@ -1,7 +1,5 @@
-const CardsFetchURL = 'https://us-central1-front-end-dev-flash-cards.cloudfunctions.net/graphql'
-
 export const fetchCards = async (): Promise<FirebaseDocArray> => {
-    const response = await fetch(CardsFetchURL, {
+    const response = await fetch(process.env.REACT_APP_GRAPHQL_URL as string, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

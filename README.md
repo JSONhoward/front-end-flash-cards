@@ -8,17 +8,37 @@ Flash cards with many front-end develope interview questions. The questions are 
 
 ## Setup
 
-To use/clone this repo as is you will have to provide your own Firebase firestore information.
+To use/clone this repo as is you will have to provide your own API.
 
-Simply create an ```.env``` file with the following variables, and fill with config from firebase.
+Currently this project uses GraphQL via Firebase cloud functions.
+
+Simply create an ```.env``` file with the following variable.
 
 ```javascript
-REACT_APP_API_KEY=
-REACT_APP_AUTH_DOMAIN=
-REACT_APP_DATABASE_URL=
-REACT_APP_PROJECT_ID=
-REACT_APP_STORAGE_BUCKET=
-REACT_APP_MESSAGING_SENDER_ID=
+REACT_APP_GRAPHQL_URL= // api url here
+```
+
+The expected GraphQL schema is...
+
+```javascript
+const typeDefs = gql`
+    type Card {
+        id: String
+        Category: String
+        q: String
+        code: String
+        a: String
+    }
+    type Query {
+        cards: [Card]
+    }
+`
+
+const resolvers = {
+    Query: {
+        cards: () => // your database call
+    }
+}
 ```
 
 ## Installation

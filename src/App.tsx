@@ -19,8 +19,7 @@ const App: React.FC<Props> = ({fetchCards}) => {
                 setAllQuestions(cards)
             })
     // setAllQuestions(mockQuestionArray)
-    // eslint-disable-next-line
-  }, [])
+    }, [fetchCards, setAllQuestions])
 
     return (
         <Home />
